@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/diyselect.js"></script>
+</head>
+<body style="padding: 20px;">
+<select>
+    <option value="0" selected>choose</option>
+    <option value="1">item1</option>
+    <option value="2">item2</option>
+    <option value="3">item3</option>
+</select>
+<script type="text/javascript">
+    $("select").diySelect();
+    $("select").chooseSelect({val: "item3"});
+</script>
+</body>
+</html>

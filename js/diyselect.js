@@ -1,6 +1,6 @@
 /**
- * @name diySelect
- * @desc this is a jquery extend plugin to diy the default select with your own style & function
+ * @name diyselect.js
+ * @desc A simple jquery plugin used to diy the default select in HTML
  * @author Roshan Wu
  * @date 2012-05-25
  * @version 1.1

@@ -1,2 +1,2 @@
 #Overview
-This is a jquery extend plugin to diy the default select with your own style & function
+This is a jquery plugin to diy the default select in HTML.

@@ -17,7 +17,7 @@ To get started, copy the files from the folder to your project, and link your HT
 ##Dependencies
 The only requirement for jquery-diyselect is jQuery. No other plugins are required.
 
-##Supported
+##Browser Support
 IE6+ and Modern Browsers
 
 ##Author

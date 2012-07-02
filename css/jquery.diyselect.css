@@ -6,5 +6,5 @@
 .fakeOption { border: 1px solid #cbcbcb; background-color: #fff; }
 .fakeOption li { line-height: 30px; padding: 0 5px; cursor: pointer; font-size: 14px; padding-right: 28px; white-space: nowrap; }
 .fakeOption .selected { background-color: #f6f6f6; }
-/* if not IE6 */
-body > .fakeOption li { height: 30px; }
+/* if gt IE6 */
+html > body .fakeOption li { height: 30px; }

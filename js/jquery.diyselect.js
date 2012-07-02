@@ -52,6 +52,10 @@
 
     // init DOM elements
     var init = function () {
+
+      // avoid fake select take a incorrect width when using custom checkText
+      var $tempLi;
+
       $(t).hide();
       $fakeSelect.insertAfter($(t));
       $fakeOption.insertAfter($fakeSelect);
@@ -79,6 +83,10 @@
       }
 
       $li = $fakeOption.find('li');
+      if (opt.checkText) {
+        $tempLi = $('<li>' + opt.checkText + '</li>');
+        $fakeOption.append($tempLi);
+      }
 
       if (opt.width > 0) {
         // custom select width
@@ -86,8 +94,8 @@
         $fakeOption.width($fakeSelect[0].clientWidth);
       } else {
         var sw = $fakeSelect[0].clientWidth,
-          ow = $fakeOption[0].clientWidth,
-          scrollWidth;
+            ow = $fakeOption[0].clientWidth,
+            scrollWidth;
 
         // if scroll bar appears
         if ($li.length > opt.maxLength) {
@@ -108,6 +116,7 @@
       }
 
       $fakeOption.hide();
+      if (opt.checkText) { $tempLi.remove(); }
 
       // TODO: to trigger the 'hasLayout' property in IE6.
       if (isIE6) {
@@ -117,12 +126,12 @@
 
     var displayUL = function () {
       var st = document.body.scrollTop || document.documentElement.scrollTop,
-        wh = window.innerHeight || document.documentElement.clientHeight,
-        dt = $fakeSelect.offset().top - st,
-        db = wh - dt - $fakeSelect.outerHeight();
+          wh = window.innerHeight || document.documentElement.clientHeight,
+          dt = $fakeSelect.offset().top - st,
+          db = wh - dt - $fakeSelect.outerHeight();
 
       // in some IE versions, it appears to get incorrect value with $.offset, use $.position for instead
-      $fakeOption.css({
+      $fakeOption.show().css({
         left: $fakeSelect.position().left,
         top: ($fakeOption.outerHeight() > db && opt.autoPosition) ?
           $fakeSelect[0].offsetTop - $fakeOption[0].offsetHeight + $fakeSelect[0].clientTop :
@@ -132,9 +141,9 @@
 
       // TODO: Solve it - to be covered by some other window's object(select, flash etc.) in IE6
       if (isIE6) {
-        $bgIframe.css({
+        $bgIframe.show().css({
           position: 'absolute',
-          zIndex: -1,
+          zIndex: 1,
           left: $fakeOption.css('left'),
           top: $fakeOption.css('top'),
           width: $fakeOption.width(),
@@ -145,7 +154,7 @@
 
     var hideUL = function () {
       $fakeOption.hide();
-      if (isIE6) $bgIframe.hide();
+      if (isIE6) { $bgIframe.hide(); }
     };
 
     var moveSelect = function (step) {
@@ -165,13 +174,19 @@
     // event bind
     $fakeSelect.bind('click', function (e) {
       opt.callBackSelect.apply(this);
-      $('.fakeOption').not($fakeOption).hide();
-      $fakeOption.toggle();
+
+      $('.' + opt.optionClass).not($fakeOption).hide();
+
       if (isIE6) {
         $('.bgiframe').not($bgIframe).hide();
-        $bgIframe.toggle();
       }
-      displayUL();
+
+      if ($fakeOption.is(':hidden')) {
+        displayUL();
+      } else {
+        hideUL();
+      }
+
       e.stopPropagation();
     });
 
@@ -251,14 +266,14 @@
   $.DiySelecter.defaults = {
     selectClass: 'fakeSelect',
     optionClass: 'fakeOption',
-    checkText: '',                   // default selected text to display
+    checkText: '',                   // placeholder text of select
     width: 0,                        // custom the width of fake select, 0 means not to custom
-    autoWidth: false,                // whether to resize fake select according to its content every time
+    autoWidth: false,                // whether to resize fake select according to its content
     circleSelect: true,
-    autoPosition: true,              // whether to
+    autoPosition: true,
     ajaxUrl: null,
     dataType: 'json',
-    maxLength: 10,                   // max option's number to display
+    maxLength: 10,                   // max limited options to display
     parseData: function (data) {},   // in ajax way, use external method to parse data
     callBackSelect: function () {},
     callBackChoose: function () {}

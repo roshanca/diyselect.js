@@ -44,7 +44,7 @@
       $fakeSelect = $('<span/>').addClass(opt.selectClass).text(checkText),
       $fakeOption = $('<ul/>').addClass(opt.optionClass).css({
         position: 'absolute',
-        zIndex: '99',
+        zIndex: opt.zIndex,
         overflow: 'auto',
         overflowX: 'hidden'
       }),
@@ -83,8 +83,8 @@
       }
 
       $li = $fakeOption.find('li');
-      if (opt.checkText) {
-        $tempLi = $('<li>' + opt.checkText + '</li>');
+      if (opt.checkText || opt.ajaxUrl) {
+        $tempLi = $('<li>' + checkText + '</li>');
         $fakeOption.append($tempLi);
       }
 
@@ -116,7 +116,7 @@
       }
 
       $fakeOption.hide();
-      if (opt.checkText) { $tempLi.remove(); }
+      if (typeof $tempLi !== 'undefined') { $tempLi.remove(); }
 
       // TODO: to trigger the 'hasLayout' property in IE6.
       if (isIE6) {
@@ -266,6 +266,7 @@
   $.DiySelecter.defaults = {
     selectClass: 'fakeSelect',
     optionClass: 'fakeOption',
+    zIndex: '99',
     checkText: '',                   // placeholder text of select
     width: 0,                        // custom the width of fake select, 0 means not to custom
     autoWidth: false,                // whether to resize fake select according to its content

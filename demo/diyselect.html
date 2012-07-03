@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>jquery-diyselect demo</title>
     <link rel="stylesheet" href="../css/reset.css" media="all">
     <link rel="stylesheet" href="../css/jquery.diyselect.css" media="all">
     <script src="../js/jquery.min.js"></script>
@@ -23,7 +23,7 @@
   </head>
   <body style="padding: 20px;">
     <div class="container">
-      <a class="ribbon" href="http://github.com/RoshanWu/diySelect" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+      <a class="ribbon" href="http://github.com/RoshanWu/diySelect" target="_blank"><img src="http://i93.photobucket.com/albums/l57/ShakeSpace/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
       <h1>jquery-diyselect</h1>
       <p>A simple jQuery plugin used to diy the default select in HTML</p>
       <h2>common use</h2>
@@ -120,11 +120,10 @@
         </select>
         <button type="button" id="example7Button">&nbsp;revert&nbsp;</button>
       </div>
-      <h2>choose event</h2>
+      <h2>choose event trigger</h2>
       <div class="example">
         <pre>
-<code>$("#example8").diySelect();
-$("#example8Button1").click(function () {
+<code>$("#example8Button1").click(function () {
   $("#example8").chooseSelect({val: "item2"});
 });
 $("#example8Button2").click(function () {
@@ -163,7 +162,7 @@ $("#example8Button2").click(function () {
         <label for="prov">
         </label>
         <select name="example9" id="prov">
-          <option value="0" selected>选择省份</option>
+          <option value="0" selected>choose province</option>
         </select>
       </div>
       <h2>IE6 test</h2>

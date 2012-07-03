@@ -14,6 +14,9 @@ To get started, copy the files from the folder to your project, and link your HT
 </script>
 ```
 
+##Demo
+http://roshanca.com/demo/diyselect.html
+
 ##Dependencies
 The only requirement for jquery-diyselect is jQuery. No other plugins are required.
 
@@ -21,5 +24,5 @@ The only requirement for jquery-diyselect is jQuery. No other plugins are requir
 IE6+ and Modern Browsers
 
 ##Author
-Roshan Wu
+Roshan Wu <br />
 http://roshanca.com

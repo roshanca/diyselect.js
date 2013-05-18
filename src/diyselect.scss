@@ -1,0 +1,28 @@
+.js-select {
+	@extend .input;
+	cursor: pointer;
+	.arrow {
+		@extend .fr;
+		width: 9px;
+		height: 12px;
+		margin-top: 3px;
+		@include bg-sprite(arrow-select);
+	}
+}
+
+.js-option {
+	position: absolute;
+	overflow: auto;
+	background-color: #fff;
+	border: 1px solid #cecece;
+	li {
+		line-height: 30px;
+		padding: 0 10px;
+		font-size: 14px;
+		cursor: pointer;
+		&.active,
+		&.selected {
+			background-color: #f6f6f6;
+		}
+	}
+}

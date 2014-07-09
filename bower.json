@@ -1,0 +1,23 @@
+{
+  "name": "diyselect.js",
+  "version": "2.0.1",
+  "authors": [
+    "roshanca <wwj1983@gmail.com>"
+  ],
+  "description": "A simple jQuery plugin used to diy the default select in HTML",
+  "main": [
+    "dist/scripts/diyselect.js",
+    "dist/styles/diyselect.css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1"
+  }
+}

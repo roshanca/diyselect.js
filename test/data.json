@@ -1,0 +1,24 @@
+{
+  "placeholder": "Loading...",
+  "optgroups": [],
+  "options": [
+    {
+      "order": 0,
+      "text": "first",
+      "value": "no1",
+      "optgroup": ""
+    },
+    {
+      "order": 1,
+      "text": "second",
+      "value": "no2",
+      "optgroup": ""
+    },
+    {
+      "order": 2,
+      "text": "third",
+      "value": "no3",
+      "optgroup": ""
+    }
+  ]
+}

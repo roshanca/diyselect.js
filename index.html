@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=Edge">
+  <title>diyselect demo</title>
+  <link rel="stylesheet" href="src/build/index.css">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="src/build/index.js"></script>
+  <style>
+    html, ul { margin: 0; padding: 0}
+    body { padding: 10px 30px; }
+    ul { list-style: none; }
+    #wrap { position: relative; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Diyselect Demo</h1>
+  <br><br><br><br><br>
+  <div id="wrap">
+    <select name="demo1" id="demo1">
+      <option value="1">one</option>
+      <option value="2">two</option>
+      <option value="3">threethreethreethree</option>
+      <option value="4">four</option>
+      <option value="5">five</option>
+      <option value="6">six</option>
+      <option value="7">seven</option>
+      <option value="8">eight</option>
+    </select>
+    <br><br><br><br><br>
+    <select name="demo2" id="demo2" placeholder="1111111111">
+      <option value="1">one</option>
+      <option value="2">two</option>
+      <option value="3">three</option>
+    </select>
+    <br>
+    <select name="demo3" id="demo3">
+      <optgroup label="Swedish Cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+        </optgroup>
+        <optgroup label="German Cars">
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </optgroup>
+    </select>
+    <select name="demo4" id="demo4"></select>
+  </div>
+  <script>
+    $(function () {
+        $selector = $('#demo1').diyselect({
+          'placeholder': 'select one...',
+          width: 200
+        });
+        // $selector.diyselect('select', {value: '3', text: "six"});
+        $('#demo2').diyselect();
+        $('#demo3').diyselect();
+        $('#demo4').diyselect({
+          data: 'test/data.json'
+        });
+    });
+  </script>
+</body>
+</html>
